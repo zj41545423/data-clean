@@ -18,8 +18,10 @@
 - 用户参数配置: 根据用户数据和计算公式,动态调整用户的一些参数
 
 #### 使用帮助
-git clone本工程后,需要先 mvn clean install ,先生成JPA需要的Q... 等辅助类.
-配置好mysql 数据源后可以正常启动本工程,启动类:com.my.zhj.cloud.Application.
+- git clone本工程.
+- 先 mvn clean install ,先生成JPA需要的Q... 等辅助类.
+- 配置好mysql 数据源 (application.properties 文件只需要配置数据源,jpa会自动建表). 
+- 启动本工程,启动类:com.my.zhj.cloud.Application.
 
 
 #### 指标配置说明
@@ -54,8 +56,8 @@ curl -X POST "http://localhost:8222/data-clean/api/v1/task/execution/TEST?transI
 {"my_add":3.2}
 
 #### Groovy 语法简要说明
-http://www.groovy-lang.org/documentation.html#gettingstarted
-https://www.w3cschool.cn/groovy/
+http://www.groovy-lang.org/documentation.html#gettingstarted <BR>
+https://www.w3cschool.cn/groovy/ <BR>
 http://wiki.jikexueyuan.com/project/groovy-introduction/
 
 
