@@ -31,11 +31,11 @@ public abstract class BaseTable {
     protected Date createdDate;
 
     @LastModifiedBy
-    @Column(name = "UPDATED_BY",columnDefinition = "varchar(32) NOT NULL DEFAULT '' COMMENT '更新人'")
+    @Column(name = "UPDATED_BY",columnDefinition = "varchar(32) DEFAULT NULL COMMENT '更新人'")
     protected String lastModifiedBy= Constants.operator;
 
     @LastModifiedDate
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "UPDATED_AT",columnDefinition = "datetime NOT NULL COMMENT '更新时间'")
+    @Column(name = "UPDATED_AT",columnDefinition = "datetime DEFAULT NULL COMMENT '更新时间'")
     protected Date lastModifiedDate=new Date();
 }

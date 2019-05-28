@@ -24,7 +24,7 @@ public class DataSourceConfig {
 
 
     @Bean(name = "dataSource")
-    @ConfigurationProperties(prefix = "mx.report.datasource.hsql")
+    @ConfigurationProperties(prefix = "data.clean.datasource.hsql")
     @Primary
     public DataSource dataSource() {
         return DataSourceBuilder.create().build();
@@ -37,7 +37,7 @@ public class DataSourceConfig {
 
 
     @Bean(name = "mysqlDbSource")
-    @ConfigurationProperties(prefix = "report.config.datasource")
+    @ConfigurationProperties(prefix = "data.clean.indicator")
     public DataSource configData() {
         return DataSourceBuilder.create().build();
     }
