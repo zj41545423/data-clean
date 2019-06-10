@@ -60,18 +60,18 @@ curl -X POST "http://localhost:8222/data-clean/api/v1/task/execution/TEST?transI
 
 #### 指标配置界面说明
 
-![登录](https://github.com/zj41545423/data-clean/src/main/resources/static/img/manageImage/login.png)
+![登录](https://github.com/zj41545423/data-clean/blob/dev/src/main/resources/static/img/manageImage/login.png)
 
-![指标类型管理](https://github.com/zj41545423/data-clean/src/main/resources/static/img/manageImage/dpmType.png)
+![指标类型管理](https://github.com/zj41545423/data-clean/blob/dev/src/main/resources/static/img/manageImage/dpmType.png)
 
-![指标导入类管理](https://github.com/zj41545423/data-clean/src/main/resources/static/img/manageImage/import.png)
+![指标导入类管理](https://github.com/zj41545423/data-clean/blob/dev/src/main/resources/static/img/manageImage/import.png)
 
-![指标函数管理](https://github.com/zj41545423/data-clean/src/main/resources/static/img/manageImage/function.png)
+![指标函数管理](https://github.com/zj41545423/data-clean/blob/dev/src/main/resources/static/img/manageImage/function.png)
 
-![指标管理](https://github.com/zj41545423/data-clean/src/main/resources/static/img/manageImage/indicator.png)
+![指标管理](https://github.com/zj41545423/data-clean/blob/dev/src/main/resources/static/img/manageImage/indicator.png)
 指标计算可以使用两个参数 : data:传入的原始数据 ,res:前面层级计算的指标结果 
 
-![用户管理](https://github.com/zj41545423/data-clean/src/main/resources/static/img/manageImage/user.png)
+![用户管理](https://github.com/zj41545423/data-clean/blob/dev/src/main/resources/static/img/manageImage/user.png)
 
 
 
