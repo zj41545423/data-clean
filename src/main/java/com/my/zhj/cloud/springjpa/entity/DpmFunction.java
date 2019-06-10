@@ -22,5 +22,7 @@ public class DpmFunction extends BaseTable{
     private String funcCode;
     @Column(name = "func_status",columnDefinition = "varchar(20) DEFAULT NULL COMMENT '函数状态'")
     private String status;
+    @Column(name = "func_version", columnDefinition = "int(4) DEFAULT '1' COMMENT '指标版本信息'")
+    private Integer funcVersion;
 
 }

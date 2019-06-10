@@ -1,4 +1,4 @@
-package com.my.zhj.cloud.controller;
+package com.my.zhj.cloud.restController;
 
 import com.alibaba.fastjson.JSON;
 import com.my.zhj.cloud.common.Constants;

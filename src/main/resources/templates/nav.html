@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8"/>
+<title>Insert title here</title>
+</head>
+<body>
+	<nav class="navbar-default navbar-static-side" role="navigation" th:fragment="navigation">
+        <div class="sidebar-collapse">
+            <ul class="nav metismenu" id="side-menu">
+                <li class="nav-header">
+                    <div class="dropdown profile-element"> 
+                    	<span>
+                            <img alt="image" class="img-circle" th:src="@{/img/p8.jpg}" height="48px" width="48px" />
+                             <!--<img  th:src="@{'/img/user/'+${session.user.getUserName()}+'.jpg'}" alt="image" class="img-circle" height="48px" width="48px"/>-->
+                            <!--<tb th:text="@{session.user.getImage()}"></tb>-->
+						</span>
+                    	<a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <span class="clear"> 
+                            	<span class="block m-t-xs">
+                            		<strong class="font-bold" th:text="${session.user.getUserName()}">username</strong>
+                             	</span> 
+                             </span>
+                     	</a>
+                    </div>
+                    <div class="logo-element">
+                        YX
+                    </div>
+                </li>
+                <li>
+                    <a th:href="@{dpm_type}"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">指标类型</span></a>
+                </li>
+
+                <li>
+                    <a th:href="@{import_1_0_0}"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">导入管理</span></a>
+                </li>
+                <li>
+                    <a th:href="@{function_1_0_0}"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">函数管理</span></a>
+                    <!--<a href="mailbox.html"><i class="fa fa-envelope"></i> <span class="nav-label">订单管理</span><span class="label label-warning pull-right">16</span></a>-->
+                </li>
+                <li>
+                    <a th:href="@{indicator_1_0_0}"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">指标管理</span></a>
+                </li>
+                <li>
+                    <a th:href="@{userList}"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">用户管理</span></a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+</body>
+</html>
+
+
+

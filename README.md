@@ -1,6 +1,6 @@
 # data-clean
 数据清洗-计算引擎
-
+springBoot2+springBatch+springJPA+thymeleaf
 ####介绍
 
 日常工作中,经常会有针对某个用户或者某个订单做变量清洗的场景,而变量对应的清洗逻辑需要经常修改.
@@ -22,6 +22,7 @@
 - 先 mvn clean install ,先生成JPA需要的Q... 等辅助类.
 - 配置好mysql 数据源 (application.properties 文件只需要配置数据源,jpa会自动建表). 
 - 启动本工程,启动类:com.my.zhj.cloud.Application.
+- 指标管理界面入口: http://127.0.0.1:8222/user/login  登录账号 admin/admin
 
 
 #### 指标配置说明
@@ -54,6 +55,23 @@ http://localhost:8222/swagger-ui.html
 curl -X POST "http://localhost:8222/data-clean/api/v1/task/execution/TEST?transId=1234" -H "accept: */*" -H "Content-Type: application/json" -d "{\"aa\":1.1,\"bb\":2.1}"
 - 返回参数:
 {"my_add":3.2}
+
+#### 指标配置界面说明
+
+![登录](https://github.com/zj41545423/data-clean/blob/master/src/main/resources/static/img/manageImage/login.png)
+
+![指标类型管理](https://github.com/zj41545423/data-clean/blob/master/src/main/resources/static/img/manageImage/dpmType.png)
+
+![指标导入类管理](https://github.com/zj41545423/data-clean/blob/master/src/main/resources/static/img/manageImage/import.png)
+
+![指标函数管理](https://github.com/zj41545423/data-clean/blob/master/src/main/resources/static/img/manageImage/function.png)
+
+![指标管理](https://github.com/zj41545423/data-clean/blob/master/src/main/resources/static/img/manageImage/indicator.png)
+指标计算可以使用两个参数 : data:传入的原始数据 ,res:前面层级计算的指标结果 
+
+![用户管理](https://github.com/zj41545423/data-clean/blob/master/src/main/resources/static/img/manageImage/user.png)
+
+
 
 #### Groovy 语法简要说明
 http://www.groovy-lang.org/documentation.html#gettingstarted <BR>

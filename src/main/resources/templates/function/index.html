@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <title>后台信息管理系统</title>
+
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet"/>
+    <link th:href="@{/font-awesome/css/font-awesome.css}" rel="stylesheet"/>
+
+    <link th:href="@{/css/animate.css}" rel="stylesheet"/>
+    <link th:href="@{/css/style.css}" rel="stylesheet"/>
+
+</head>
+
+<body>
+<div id="wrapper">
+    <nav class="navbar-default navbar-static-side" role="navigation" th:include="nav :: navigation"></nav>
+    <div id="page-wrapper" class="gray-bg">
+        <div class="border-bottom" th:include="header :: headerTop"></div>
+        <div class="wrapper wrapper-content animated fadeInRight">
+            <div class="row">
+
+                <div class="col-lg-12">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>搜索&amp;操作</h5>
+                            <div class="ibox-tools">
+                                <a class="collapse-link">
+                                    <i class="fa fa-chevron-up"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="ibox-content" style="display: block;">
+                            <form action="function_1_0_0">
+                                <div class="row">
+                                    <div class="col-sm-2 m-b-xs">
+                                    <input id="funcName" name="funcName" placeholder="函数编码" class="form-control" type="text" th:value="${funcName}"/>
+                                    </div>
+
+                                    <div class="col-sm-2 m-b-xs">
+                                    <input id="funcDesc" name="funcDesc" class="form-control" type="text" th:value="${funcDesc}" placeholder="函数说明" />
+                                    </div>
+
+                                    <div class="col-sm-2 m-b-xs">
+                                        <select name="funcStatus" id="funcStatus" class="form-control" >
+                                            <option value="ALL" selected="true">--请选择函数状态--</option>
+                                            <option value="ON" >ON</option>
+                                            <option value="OFF" >OFF</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-sm-2 m-b-xs">
+                                        <button class="btn btn-primary btn-block" type="submit"><i class="fa fa-search"></i>&nbsp;&nbsp;&nbsp;&nbsp;<strong>搜索</strong></button>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="row">
+                                <div class="col-sm-6 m-b-xs">
+                                    <a th:href="@{functionCreate}" class="btn btn-primary btn-sm" data-toggle="tooltip" data-placement="left" title="" data-original-title="Refresh inbox"><i class="fa fa-plus"></i>&nbsp;&nbsp;&nbsp;&nbsp;新增函数&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                                </div>
+                                <div class="col-sm-6 m-b-xs">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-12">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>函数管理</h5>
+                            <div class="ibox-tools">
+                                <a class="collapse-link">
+                                    <i class="fa fa-chevron-up"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="ibox-content">
+
+                            <div class="table-responsive">
+                                <table class=" table table-hover" data-page-size="10">
+                                    <thead>
+                                    <tr>
+                                        <th width="10%">ID</th>
+                                        <th width="15%">函数编码</th>
+                                        <th width="15%">函数说明</th>
+                                        <th width="10%">函数状态</th>
+                                        <th width="10%">函数版本</th>
+
+                                        <th width="15%">创建时间</th>
+                                        <th width="10%">创建人</th>
+                                        <th>操作</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr th:each="ic : ${list}">
+                                        <td th:text="${ic.id}">Onions</td>
+                                        <td th:text="${ic.funcName}">Onions</td>
+                                        <td th:text="${ic.funcDesc}">Onions</td>
+                                        <td th:text="${ic.status}">Onions</td>
+                                        <td th:text="${ic.funcVersion}">Onions</td>
+
+                                        <td th:text="${#dates.format(ic.createdDate,'yyyy-MM-dd HH:mm:ss')}">Onions</td>
+                                        <td th:text="${ic.createdBy}">Onions</td>
+                                        <td>
+                                            <a th:href="@{'functionEdit?id='+${ic.id}}" title="修改"><i class="fa fa-edit text-navy"></i></a>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;
+                                            <a href="#" th:onclick="'javascript:updateState('+${ic.id}+',2);'" title="删除"><i class="fa fa-trash-o text-navy"></i></a>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                    <tfoot>
+                                    <tr>
+                                        <td colspan="7">
+                                            <ul id="pageHTML" class="pagination pull-right"></ul>
+                                        </td>
+                                    </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer" th:include="footer :: copyright"></div>
+    </div>
+</div>
+
+<!-- Mainly scripts -->
+<script th:src="@{/js/jquery-2.1.1.js}"></script>
+<script th:src="@{/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/plugins/metisMenu/jquery.metisMenu.js}"></script>
+<script th:src="@{/js/plugins/slimscroll/jquery.slimscroll.min.js}"></script>
+
+<!-- Flot -->
+<script th:src="@{/js/plugins/flot/jquery.flot.js}"></script>
+<script th:src="@{/js/plugins/flot/jquery.flot.tooltip.min.js}"></script>
+<script th:src="@{/js/plugins/flot/jquery.flot.spline.js}"></script>
+<script th:src="@{/js/plugins/flot/jquery.flot.resize.js}"></script>
+<script th:src="@{/js/plugins/flot/jquery.flot.pie.js}"></script>
+<script th:src="@{/js/plugins/flot/jquery.flot.symbol.js}"></script>
+<script th:src="@{/js/plugins/flot/jquery.flot.time.js}"></script>
+
+<!-- Peity -->
+<script th:src="@{/js/plugins/peity/jquery.peity.min.js}"></script>
+<script th:src="@{/js/demo/peity-demo.js}"></script>
+
+<!-- Custom and plugin javascript -->
+<script th:src="@{/js/inspinia.js}"></script>
+<script th:src="@{/js/plugins/pace/pace.min.js}"></script>
+
+<!-- jQuery UI -->
+<script th:src="@{/js/plugins/jquery-ui/jquery-ui.min.js}"></script>
+
+<!-- Jvectormap -->
+<script th:src="@{/js/plugins/jvectormap/jquery-jvectormap-2.0.2.min.js}"></script>
+<script th:src="@{/js/plugins/jvectormap/jquery-jvectormap-world-mill-en.js}"></script>
+
+<!-- EayPIE -->
+<script th:src="@{/js/plugins/easypiechart/jquery.easypiechart.js}"></script>
+
+<!-- Sparkline -->
+<script th:src="@{/js/plugins/sparkline/jquery.sparkline.min.js}"></script>
+
+<!-- Sparkline demo data  -->
+<script th:src="@{/js/demo/sparkline-demo.js}"></script>
+
+<script th:inline="javascript">
+    /*<![CDATA[*/
+
+    var pageHTML = [[${pageHTML}]];
+    $(document).ready(function () {
+        $("#pageHTML").html(pageHTML);
+
+    });
+
+    function updateState(id,state){
+        if(confirm("确定删除此条信息?")){
+            $.ajax({
+                type: "POST",
+                url: "functionDelete?id="+id,
+                contentType: "application/json; charset=utf-8",
+                success: function(msg){
+                    window.location.reload();
+                },
+                error: function(){
+                    alert("系统异常！");
+                }
+            });
+        }
+    }
+    /*]]>*/
+</script>
+</body>
+</html>
